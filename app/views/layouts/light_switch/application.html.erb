@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Light switch</title>
+  <title>Light Switch</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag    "light_switch/application", media: "all" %>
+  <%= stylesheet_link_tag "light_switch/application", media: "all", data: { turbolinks_track: :reload } %>
+  <%= javascript_include_tag "light_switch/application", type: :module, defer: true, data: { turbolinks_track: :reload } %>
 </head>
 <body>
 
