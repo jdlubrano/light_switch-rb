@@ -1,3 +1,3 @@
 LightSwitch::Engine.routes.draw do
-  resources :switches, only: %i[index update destroy]
+  resources :switches, except: %i[edit show]
 end

@@ -1,16 +1,21 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Switches</h1>
 
-<%= render "model_errors", model: @switch %>
+<p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
 
-<div id="switches">
-  <% @switches.each do |switch| %>
-    <%= render switch %>
-    <p>
-      <%= link_to "Show this switch", switch %>
-    </p>
-  <% end %>
+<table id="switches">
+  <thead>
+    <th>Name</th>
+    <th>State</th>
+    <th>Created At</th>
+    <th>Updated At</th>
+    <th><!-- Actions --></th>
+  </thead>
+  <tbody>
+    <%= render @switches %>
+  </tbody>
+</table>
+
+<div id="new-switch">
+  <%= render "form", switch: @switch %>
 </div>
-
-<%# link_to "New switch", new_switch_path %>

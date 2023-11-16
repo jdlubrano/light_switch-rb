@@ -1,0 +1,15 @@
+<tr id="<%= dom_id(switch)%>">
+  <td><%= switch.name %></td>
+  <td>
+    <%= switch.state %>
+    <%= form_with(model: switch) do |form| %>
+      <%= form.hidden_field :state, value: switch.on? ? "off" : "on" %>
+      <%= form.submit(switch.on? ? "Turn off" : "Turn on", data: { turbo_confirm: "Are you sure?" }) %>
+    <% end %>
+  </td>
+  <td><%= l(switch.created_at, format: :long) %></td>
+  <td><%= l(switch.updated_at, format: :long) %></td>
+  <td>
+    <%= button_to "Delete", switch, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+  </td>
+</tr>

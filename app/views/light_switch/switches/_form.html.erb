@@ -1,15 +1,12 @@
+<p>Add a new switch</p>
+
 <%= form_with(model: switch) do |form| %>
 
-  <%= render "model_errors", locals: { model: switch } %>
+  <%= render "form_errors", switch: switch %>
 
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :state, style: "display: block" %>
-    <%= form.text_field :state %>
   </div>
 
   <div>
