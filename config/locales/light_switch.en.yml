@@ -1,0 +1,13 @@
+en:
+  light_switch:
+    switches:
+      switch:
+        confirm:
+          delete: >
+            Are you sure that you want to delete %{name}?
+
+
+            If your code still references this switch, it will behave as if it is turned on.
+
+          turn_off: Are you sure that you want to turn off this switch?
+          turn_on: Are you sure that you want to turn on this switch?

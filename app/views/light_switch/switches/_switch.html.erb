@@ -6,12 +6,18 @@
         <%= switch.state.upcase %>
       </span>
       <%= form.hidden_field :state, value: switch.on? ? "off" : "on" %>
-      <%= form.submit(switch.on? ? "Turn off" : "Turn on", class: "turn-#{switch.on? ? 'off' : 'on'}", data: { turbo_confirm: "Are you sure?" }) %>
+      <%=
+        form.submit(
+          switch.on? ? "Turn off" : "Turn on",
+          class: "turn-#{switch.on? ? 'off' : 'on'}",
+          data: { turbo_confirm: t(".confirm.turn_#{switch.on? ? "off" : "on"}") }
+        )
+      %>
     <% end %>
   </td>
   <td><%= l(switch.created_at, format: :long) %></td>
   <td><%= l(switch.updated_at, format: :long) %></td>
   <td>
-    <%= button_to "Delete", switch, method: :delete, data: { turbo_confirm: "Are you sure?" }, form_class: "form-inline" %>
+    <%= button_to "Delete", switch, method: :delete, data: { turbo_confirm: t(".confirm.delete", name: switch.name) }, form_class: "form-inline" %>
   </td>
 </tr>
