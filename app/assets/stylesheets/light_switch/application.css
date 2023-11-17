@@ -13,3 +13,76 @@
  *= require_tree .
  *= require_self
  */
+
+.site-header {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  margin: 1em 0 1em -0.75em;
+}
+
+.site-header h2 {
+  margin-bottom: 0.25em;
+}
+
+.site-header .site-logo {
+  height: 4em;
+}
+
+.site-footer {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  min-height: 3em;
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.form-inline label {
+  margin: 0.5em 1em 0.5em 0;
+}
+
+.form-inline input,
+.form-inline button {
+  vertical-align: middle;
+  margin: 0.5em 1em 0.5em 0;
+}
+
+.alert {
+  padding: 1em;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 0.5em;
+}
+
+.notice {
+  padding: 1em;
+  background-color: rgba(0, 255, 0, 0.1);
+  border-radius: 0.5em;
+}
+
+.mr-1 {
+  margin-right: 1em;
+}
+
+.switch-state {
+  min-width: 3em;
+}
+
+.switch-state-on {
+  font-weight: bold;
+}
+
+input.turn-off {
+  min-width: 12em;
+  background: rgba(255, 0, 0, 0.25);
+}
+
+input.turn-on {
+  background: rgba(0, 255, 0, 0.25);
+  min-width: 12em;
+}

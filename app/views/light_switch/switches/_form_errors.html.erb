@@ -1,5 +1,5 @@
 <% if switch.present? && switch.errors.any? %>
-  <p style="color: red">
+  <p class="form-errors alert">
     Failed to save: <%= switch.errors.full_messages.to_sentence %>.
   </p>
 <% end %>

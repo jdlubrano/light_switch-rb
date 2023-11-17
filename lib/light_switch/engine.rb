@@ -1,3 +1,4 @@
+require "inline_svg"
 require "turbo-rails"
 
 module LightSwitch

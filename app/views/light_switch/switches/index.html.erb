@@ -1,9 +1,10 @@
-<h1>Switches</h1>
+<h4>Switches</h4>
 
-<p style="color: green"><%= notice %></p>
-<p style="color: red"><%= alert %></p>
+<% flash.each do |key, msg| %>
+  <p class="<%= key %>"><%= msg %></p>
+<% end %>
 
-<table id="switches">
+<table id="switches" class="u-full-width">
   <thead>
     <th>Name</th>
     <th>State</th>

@@ -4,13 +4,27 @@
   <title>Light Switch</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
   <%= stylesheet_link_tag "light_switch/application", media: "all", data: { turbolinks_track: :reload } %>
   <%= javascript_include_tag "light_switch/application", type: :module, defer: true, data: { turbolinks_track: :reload } %>
 </head>
 <body>
+  <div class="container">
+    <div class="site-header">
+      <%= inline_svg_tag("light_switch/light-switch", class: "site-logo") %>
+      <h2>Light Switch</h2>
+    </div>
 
-<%= yield %>
+    <%= yield %>
 
+    <div class="site-footer u-full-width">
+      Light Switch logo was created by
+      <a href="https://thenounproject.com/snjeffries1106">Sara Jeffries</a>
+      from the Noun Project.
+    </div>
+  </div>
 </body>
 </html>

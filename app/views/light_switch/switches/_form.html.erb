@@ -1,15 +1,6 @@
-<p>Add a new switch</p>
+<%= render "form_errors", switch: switch %>
 
-<%= form_with(model: switch) do |form| %>
-
-  <%= render "form_errors", switch: switch %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
+<%= form_with(model: switch, class: "form-inline") do |form| %>
+    <%= form.text_field :name, placeholder: "Name" %>
     <%= form.submit %>
-  </div>
 <% end %>
