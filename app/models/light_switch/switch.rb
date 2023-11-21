@@ -1,5 +1,7 @@
 module LightSwitch
   class Switch < ApplicationRecord
+    include NotificationsConcern
+
     enum state: { on: "on", off: "off" }
 
     scope :ordered, -> { order(:name) }

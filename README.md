@@ -141,6 +141,32 @@ need caching.
 You can also implement your own cache as long as it implements the interface
 of [`LightSwitch::NullCache`](lib/light_switch/null_cache.rb).
 
+### ActiveSupport::Notifications
+
+If you wish to be notified of changes made to any switches, you can subscribe
+to [`ActiveSupport::Notifications`](https://api.rubyonrails.org/classes/ActiveSupport/Notifications.html)
+published by LightSwitch.  There are three events available:
+
+* `create_committed.switch.light_switch`
+* `destroy_committed.switch.light_switch`
+* `update_committed.switch.light_switch`
+
+An example use case could be logging changes for visibility:
+
+```ruby
+# config/initializers/light_switch.rb
+
+ActiveSupport::Notifications.subscribe("update_committed.switch.light_switch") do |*args|
+  event = ActiveSupport::Notifications::Event.new(*args)
+  switch = event.payload[:switch]
+
+  Rails.logger.info("#{switch.name} is now #{switch.state}")
+end
+```
+
+The events captured do not capture any meaningful latency metrics. They are just
+published events once changes to a `LightSwitch::Switch` are committed.
+
 ## Installation
 Add this line to your application's Gemfile:
 
