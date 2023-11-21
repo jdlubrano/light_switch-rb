@@ -8,7 +8,13 @@ module LightSwitch
 
     before_validation :normalize_name
 
+    after_save :delete_from_cache
+
     private
+
+    def delete_from_cache
+      LightSwitch.config.cache.delete("#{self.class.name.underscore}/#{name}")
+    end
 
     def normalize_name
       self.name.tap(&:strip!).downcase! if name.present?

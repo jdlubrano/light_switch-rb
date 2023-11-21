@@ -45,5 +45,44 @@ module LightSwitch
 
       assert_nothing_raised { switch.validate }
     end
+
+    test "after_save :delete_from_cache (on create)" do
+      switch = LightSwitch::Switch.new(name: :test)
+
+      mock_cache = Minitest::Mock.new
+      mock_cache.expect :delete, true, ["light_switch/switch/test"]
+
+      LightSwitch.config.stub :cache, mock_cache do
+        switch.save!
+      end
+
+      assert mock_cache
+    end
+
+    test "after_save :delete_from_cache (on update)" do
+      switch = LightSwitch::Switch.create!(name: :test)
+
+      mock_cache = Minitest::Mock.new
+      mock_cache.expect :delete, true, ["light_switch/switch/test"]
+
+      LightSwitch.config.stub :cache, mock_cache do
+        switch.off!
+      end
+
+      assert mock_cache
+    end
+
+    test "after_save :delete_from_cache (on destroy)" do
+      switch = LightSwitch::Switch.create!(name: :test)
+
+      mock_cache = Minitest::Mock.new
+      mock_cache.expect :delete, true, ["light_switch/switch/test"]
+
+      LightSwitch.config.stub :cache, mock_cache do
+        switch.destroy
+      end
+
+      assert mock_cache
+    end
   end
 end
