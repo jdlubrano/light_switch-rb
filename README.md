@@ -5,7 +5,8 @@ Simple circuit breakers on Rails
 ## Use Cases
 
 `LightSwitch` aims to be a very simple circuit breaker implementation. You can
-use a `LightSwitch` to turn things on and to turn things off.
+use a `LightSwitch` to turn things on and to turn things off. That's pretty much
+it.
 
 [Stoplight](https://github.com/bolshakov/stoplight) and
 [Circuitbox](https://github.com/yammer/circuitbox) are excellent, full-featured
@@ -47,7 +48,7 @@ is that an `off` switch will short circuit a given piece of code.  Therefore
 the recommended usage of `LightSwitch` is something like this:
 ```ruby
 def my_method
-  return if LightSwitch[:my_switch].off?
+  return if LightSwitch.off?(:my_switch)
 
   do_stuff
 end
@@ -57,12 +58,38 @@ Or
 
 ```ruby
 def my_method
-  do_stuff if LightSwitch[:my_switch].on?
+  do_stuff if LightSwitch.on?(:my_switch)
 end
 ```
 
 You can interpret `off` and `on` however you want; it's up to you.
 What few defaults `LightSwitch` implements assume the convention above, though.
+
+### Operating Switches
+
+If you have Rails console access, you can turn switches on and off:
+
+```ruby
+LightSwitch[:my_switch].on!  # turns the switch on
+LightSwitch[:my_switch].off! # turns the switch off
+```
+
+### LightSwitch UI
+
+LightSwitch comes with a web UI that can be mounted in your rails application.
+
+![UI](docs/light_switch_ui.png)
+
+Just add the following to `config/routes.rb`:
+
+```ruby
+Rails.application.routes.draw do
+  mount LightSwitch::Engine => "/light_switch"
+end
+```
+
+You can limit access to the UI by using
+[Rails routing constraints](https://guides.rubyonrails.org/routing.html#advanced-constraints).
 
 ### Configuration
 
@@ -86,6 +113,34 @@ LightSwitch.configure do |config|
 end
 ```
 
+### Caching
+
+By default, `LightSwitch` does not leverage caching, but you can configure
+`LightSwitch` to use a cache if you have performance concerns. For example,
+`Rails.cache` may be configured by setting `LightSwitch.config.cache` in a
+Rails initializer:
+
+```ruby
+# config/initializers/light_switch.rb
+
+LightSwitch.configure do |config|
+  config.cache = Rails.cache
+end
+```
+
+You should **not** use an in-memory cache for `LightSwitch`.  `LightSwitch`
+caches values indefinitely and will reset cached values whenever an
+underlying `LightSwitch::Switch` model is changed.  If you are using an
+in-memory cache, `LightSwitch` has no way to clear the caches used by all of
+the various processes running your application (web workers, Sidekiq workers, etc.).
+If you are using a centralized cache, like Redis or MemCached, feel free to use
+it with `LightSwitch`.  The queries to read a switch from the database are
+indexed and will return very quickly, so most `LightSwitch` users will not
+need caching.
+
+You can also implement your own cache as long as it implements the interface
+of [`LightSwitch::NullCache`](lib/light_switch/null_cache.rb).
+
 ## Installation
 Add this line to your application's Gemfile:
 
@@ -105,6 +160,8 @@ $ gem install light_switch
 
 ## Contributing
 Fork this repo and submit a pull request.
+
+If you find a bug or have a feature request, please open a GitHub issue.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
