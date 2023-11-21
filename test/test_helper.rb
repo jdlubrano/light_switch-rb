@@ -17,3 +17,6 @@ if ActiveSupport::TestCase.respond_to?(:fixture_paths=)
   # ActiveSupport::TestCase.file_fixture_path = ActiveSupport::TestCase.fixture_paths + "/files"
   ActiveSupport::TestCase.fixtures :all
 end
+
+LightSwitch.configure_defaults
+
