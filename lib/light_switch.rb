@@ -13,4 +13,18 @@ module LightSwitch
     config.cache = NullCache.new
     config.switches = []
   end
+
+  def [](switch_name)
+    config.cache.fetch("#{LightSwitch::Switch.name.underscore}/#{switch_name}") do
+      LightSwitch::Switch.find_or_initialize_by(name: switch_name)
+    end
+  end
+
+  def on?(switch_name)
+    self[switch_name].on?
+  end
+
+  def off?(switch_name)
+    self[switch_name].off?
+  end
 end
