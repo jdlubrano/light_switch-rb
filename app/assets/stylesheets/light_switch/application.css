@@ -18,7 +18,7 @@
   display: flex;
   flex-flow: row;
   align-items: center;
-  margin: 1em 0 1em -0.75em;
+  margin: 0 0 1em -0.75em;
 }
 
 .site-header h2 {
@@ -29,10 +29,19 @@
   height: 4em;
 }
 
+.container {
+  min-height: 100vh;
+  padding-top: 1em;
+}
+
+#new-switch {
+  padding-bottom: 4em;
+}
+
 .site-footer {
-  position:fixed;
-  bottom:0;
-  width:100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   min-height: 3em;
 }
 
