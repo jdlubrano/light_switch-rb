@@ -2,44 +2,91 @@ require "application_system_test_case"
 
 module LightSwitch
   class SwitchesTest < ApplicationSystemTestCase
+    def index_path
+      "#{light_switch_path}/#{switches_path}"
+    end
+
     setup do
       @switch = light_switch_switches(:one)
     end
 
     test "visiting the index" do
-      visit switches_url
-      assert_selector "h1", text: "Switches"
+      visit index_path
+      assert_selector "h4", text: "Switches"
+
+      within("tr#switch_#{@switch.id}") do
+        assert_selector "td", text: @switch.name
+        assert_selector "input.turn-off"
+      end
     end
 
-    test "should create switch" do
-      visit switches_url
-      click_on "New switch"
+    test "create switch" do
+      visit index_path
 
-      fill_in "Name", with: @switch.name
-      fill_in "State", with: @switch.state
+      fill_in "Name", with: "switch_two"
       click_on "Create Switch"
 
-      assert_text "Switch was successfully created"
-      click_on "Back"
+      assert_text "Switch switch_two was successfully created"
+
+      within("tr#switch_#{LightSwitch::Switch.last.id}") do
+        assert_selector "td", text: "switch_two"
+      end
     end
 
-    test "should update Switch" do
-      visit switch_url(@switch)
-      click_on "Edit this switch", match: :first
+    test "invalid switch creation" do
+      visit index_path
 
+      # Duplicate switch cannot be created
       fill_in "Name", with: @switch.name
-      fill_in "State", with: @switch.state
-      click_on "Update Switch"
+      click_on "Create Switch"
 
-      assert_text "Switch was successfully updated"
-      click_on "Back"
+      assert_text "Failed to save: Name already taken."
     end
 
-    test "should destroy Switch" do
-      visit switch_url(@switch)
-      click_on "Destroy this switch", match: :first
+    test "turn on Switch" do
+      @switch.off!
 
-      assert_text "Switch was successfully destroyed"
+      visit index_path
+
+      within("tr#switch_#{@switch.id}") do
+        find("input.turn-on").click
+      end
+
+      assert_text "Switch #{@switch.name} was successfully updated."
+    end
+
+    test "turn off Switch" do
+      @switch.on!
+
+      visit index_path
+
+      within("tr#switch_#{@switch.id}") do
+        find("input.turn-off").click
+      end
+
+      assert_text "Switch #{@switch.name} was successfully updated."
+    end
+
+    test "update deleted Switch" do
+      visit index_path
+
+      @switch.destroy!
+
+      within("tr#switch_#{@switch.id}") do
+        find("input.turn-off").click
+      end
+
+      assert_text "Failed to update Switch because it has been deleted."
+    end
+
+    test "delete Switch" do
+      visit index_path
+
+      within("tr#switch_#{@switch.id}") do
+        click_on("Delete")
+      end
+
+      assert_text "Switch #{@switch.name} was successfully deleted"
     end
   end
 end

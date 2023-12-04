@@ -30,13 +30,13 @@ module LightSwitch
         redirect_to [:switches], alert: "Failed to update Switch #{@switch.name}: #{errors}", status: :see_other
       end
     rescue ActiveRecord::RecordNotFound
-      redirect_to [:switches], alert: "Failed to update Switch because it has been deleted", status: :see_other
+      redirect_to [:switches], alert: "Failed to update Switch because it has been deleted.", status: :see_other
     end
 
     def destroy
       switch = Switch.find_by(id: params[:id])
       switch&.destroy!
-      redirect_to [:switches], notice: "Switch #{switch.name} was successfully destroyed.", status: :see_other
+      redirect_to [:switches], notice: "Switch #{switch.name} was successfully deleted.", status: :see_other
     end
 
     private
