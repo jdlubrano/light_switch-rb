@@ -46,6 +46,5 @@ module LightSwitch
       assert_equal 2, callback.call_count
       assert_kind_of LightSwitch::Switch, callback.switch
     end
-
   end
 end

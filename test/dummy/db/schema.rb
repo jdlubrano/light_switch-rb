@@ -18,5 +18,4 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_015256) do
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_light_switch_switches_on_name", unique: true
   end
-
 end
