@@ -2,7 +2,7 @@ module LightSwitch
   class Switch < ApplicationRecord
     include NotificationsConcern
 
-    enum state: { on: "on", off: "off" }
+    enum state: {on: "on", off: "off"}
 
     scope :ordered, -> { order(:name) }
 
@@ -19,7 +19,7 @@ module LightSwitch
     end
 
     def normalize_name
-      self.name.tap(&:strip!).downcase! if name.present?
+      name.tap(&:strip!).downcase! if name.present?
     end
   end
 end

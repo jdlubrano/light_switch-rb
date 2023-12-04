@@ -20,4 +20,3 @@ if ActiveSupport::TestCase.respond_to?(:fixture_paths=)
 end
 
 LightSwitch.configure_defaults
-

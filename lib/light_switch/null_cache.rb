@@ -4,6 +4,7 @@ module LightSwitch
       yield if block_given?
     end
 
-    def delete(_key); end
+    def delete(_key)
+    end
   end
 end

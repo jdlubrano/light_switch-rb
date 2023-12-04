@@ -6,7 +6,7 @@ module LightSwitch
       switch = LightSwitch::Switch.create!(name: "test")
 
       assert_raises(ActiveRecord::RecordNotUnique) do
-        LightSwitch::Switch.create(name: "test")
+        LightSwitch::Switch.create(name: switch.name)
       end
     end
 
