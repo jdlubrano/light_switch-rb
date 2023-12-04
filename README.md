@@ -177,6 +177,7 @@ gem "light_switch"
 And then execute:
 ```bash
 $ bundle
+$ ./bin/rails light_switch:install:migrations db:migrate
 ```
 
 Or install it yourself as:
