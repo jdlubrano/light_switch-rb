@@ -1,3 +1,4 @@
+*.swp
 /.bundle/
 /doc/
 /log/*.log
