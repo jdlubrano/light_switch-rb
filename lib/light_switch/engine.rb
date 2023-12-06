@@ -8,7 +8,11 @@ module LightSwitch
     config.before_configuration { LightSwitch.configure_defaults }
 
     initializer "light_switch.assets.precompile" do |app|
-      app.config.assets.precompile += ["application.js"]
+      app.config.assets.precompile += [
+        "light_switch/application.css",
+        "light_switch/application.js",
+        "light_switch/light-switch.svg"
+      ]
     end
 
     initializer "light_switch.create_switches", after: :load_config_initializers do

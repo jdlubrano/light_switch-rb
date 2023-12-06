@@ -1,4 +1,4 @@
-class CreateLightSwitchSwitches < ActiveRecord::Migration[7.1]
+class CreateLightSwitchSwitches < ActiveRecord::Migration["#{Rails::VERSION::MAJOR}.#{Rails::VERSION::MINOR}"]
   def change
     create_table :light_switch_switches do |t|
       t.string :name, null: false
