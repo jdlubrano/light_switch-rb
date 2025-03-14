@@ -19,8 +19,8 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency "inline_svg", "~> 1.8"
-  spec.add_dependency "rails", ">= 7.0.2.2", "< 7.2"
-  spec.add_dependency "turbo-rails", "~> 1.5"
+  spec.add_dependency "rails", ">= 7.0.2.2", "< 7.3"
+  spec.add_dependency "turbo-rails", ">= 1.5", "< 2.1"
 
   spec.add_development_dependency "appraisal"
   spec.add_development_dependency "capybara"
