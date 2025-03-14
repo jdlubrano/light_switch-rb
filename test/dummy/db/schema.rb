@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_16_015256) do
+ActiveRecord::Schema[8.0].define(version: 2023_11_16_015256) do
   create_table "light_switch_switches", force: :cascade do |t|
     t.string "name", null: false
     t.string "state", default: "on", null: false
