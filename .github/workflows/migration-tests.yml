@@ -15,6 +15,6 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
       - name: Install dependencies
-        run: bundle install
+        run: bundle && ./bin/appraisal install
       - name: Set up DB
         run: ./bin/appraisal rails db:create db:migrate:reset

@@ -23,7 +23,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
       - name: Install dependencies
-        run: bundle install
+        run: bundle && ./bin/appraisal install
       - name: Set up DB
         run: ./bin/rails db:setup
       - name: Test Engine initializers
