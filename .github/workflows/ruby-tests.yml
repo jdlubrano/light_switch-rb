@@ -5,6 +5,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  schedule:
+    - cron: "0 6 * * *" # 6 A.M.
 
 jobs:
   test:
@@ -21,8 +23,10 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
       - name: Install dependencies
-        run: bundle install
+        run: bundle && ./bin/appraisal install
       - name: Set up DB
         run: ./bin/rails db:setup
+      - name: Test Engine initializers
+        run: ./bin/appraisal rails runner scripts/initializers_test.rb
       - name: Run tests
-        run: ./bin/rails test
+        run: ./bin/appraisal rails test

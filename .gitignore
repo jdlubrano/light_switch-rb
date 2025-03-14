@@ -1,6 +1,7 @@
 *.swp
 /.bundle/
 /doc/
+/gemfiles/*.lock
 /log/*.log
 /pkg/
 /tmp/

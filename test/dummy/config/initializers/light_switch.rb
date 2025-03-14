@@ -1,3 +1,3 @@
 LightSwitch.configure do |config|
-  config.switches = [:dummy]
+  config.switches = [:switch_defined_in_initializer]
 end

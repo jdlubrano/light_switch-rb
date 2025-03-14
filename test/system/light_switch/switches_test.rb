@@ -27,6 +27,7 @@ module LightSwitch
       click_on "Create Switch"
 
       assert_text "Switch switch_two was successfully created"
+      assert LightSwitch::Switch.exists?(name: "switch_two", state: :on)
 
       within("tr#switch_#{LightSwitch::Switch.last.id}") do
         assert_selector "td", text: "switch_two"
@@ -39,6 +40,7 @@ module LightSwitch
       # Duplicate switch cannot be created
       fill_in "Name", with: @switch.name
       click_on "Create Switch"
+      assert_equal LightSwitch::Switch.count, 1
 
       assert_text "Failed to save: Name already taken."
     end
@@ -53,6 +55,7 @@ module LightSwitch
       end
 
       assert_text "Switch #{@switch.name} was successfully updated."
+      assert @switch.reload.on?
     end
 
     test "turn off Switch" do
@@ -65,6 +68,7 @@ module LightSwitch
       end
 
       assert_text "Switch #{@switch.name} was successfully updated."
+      assert @switch.reload.off?
     end
 
     test "update deleted Switch" do
@@ -87,6 +91,7 @@ module LightSwitch
       end
 
       assert_text "Switch #{@switch.name} was successfully deleted"
+      assert_equal LightSwitch::Switch.count, 0
     end
   end
 end
