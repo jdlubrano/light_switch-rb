@@ -11,11 +11,17 @@ module LightSwitch
 
   def configure_defaults
     config.cache = NullCache.new
+
+    config.cache_fetch_options = {
+      expires_in: 86_400,     # 1 day
+      race_condition_ttl: 300 # 5 minutes
+    }
+
     config.switches = []
   end
 
   def [](switch_name)
-    config.cache.fetch("#{LightSwitch::Switch.name.underscore}/#{switch_name}") do
+    config.cache.fetch("#{LightSwitch::Switch.name.underscore}/#{switch_name}", **config.cache_fetch_options) do
       LightSwitch::Switch.find_or_initialize_by(name: switch_name)
     end
   end
