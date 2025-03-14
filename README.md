@@ -37,7 +37,7 @@ flags.  Some organizations expose the Flipper UI to a wide range of internal
 users especially if Product Managers enable and disable features on behalf of
 customers.  You probably want to limit the exposure of your `LightSwitches`.  You
 would not want someone to turn off a piece of code unless they really knew what
-they were doing.  `Lightswitch` can give you a little separation between feature
+they were doing.  `LightSwitch` can give you a little separation between feature
 flags and circuit breakers.  `Flipper` is well-suited to do the job if you want
 to use it, though.
 
