@@ -125,14 +125,17 @@ Rails initializer:
 
 LightSwitch.configure do |config|
   config.cache = Rails.cache
+
+  # You can also provide options that will be used in calls to cache.fetch.
+  # The default cache_fetch_options are:
+  config.cache_fetch_options = { expires_in: 1.day, race_condition_ttl: 5.minutes }
 end
 ```
 
-You should **not** use an in-memory cache for `LightSwitch`.  `LightSwitch`
-caches values indefinitely and will reset cached values whenever an
-underlying `LightSwitch::Switch` model is changed.  If you are using an
-in-memory cache, `LightSwitch` has no way to clear the caches used by all of
-the various processes running your application (web workers, Sidekiq workers, etc.).
+`LightSwitch` resets cached values whenever an underlying `LightSwitch::Switch`
+model is changed.  You should **not** use an in-memory cache for `LightSwitch`.
+If you are using an in-memory cache, `LightSwitch` has no way to clear the caches
+used by all of the various processes running your application (web workers, Sidekiq workers, etc.).
 If you are using a centralized cache, like Redis or MemCached, feel free to use
 it with `LightSwitch`.  The queries to read a switch from the database are
 indexed and will return very quickly, so most `LightSwitch` users will not
