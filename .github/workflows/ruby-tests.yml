@@ -27,6 +27,6 @@ jobs:
       - name: Set up DB
         run: ./bin/rails db:setup
       - name: Test Engine initializers
-        run: ./bin/appraisal ruby scripts/initializers_test.rb
+        run: ./bin/appraisal rails runner scripts/initializers_test.rb
       - name: Run tests
         run: ./bin/appraisal rails test
