@@ -3,7 +3,7 @@ PATH
   specs:
     light_switch (0.1.0)
       inline_svg (~> 1.8)
-      rails (>= 7.0.2.2, < 7.3)
+      rails (>= 7.0.2.2, < 8.1)
       turbo-rails (>= 1.5, < 2.1)
 
 GEM
