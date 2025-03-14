@@ -1,6 +1,6 @@
 module LightSwitch
   class NullCache
-    def fetch(_key)
+    def fetch(_key, **)
       yield if block_given?
     end
 
