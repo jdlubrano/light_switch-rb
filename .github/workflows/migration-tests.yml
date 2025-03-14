@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  test_migrations:
     runs-on: ubuntu-latest
 
     steps:
