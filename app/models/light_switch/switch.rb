@@ -2,7 +2,11 @@ module LightSwitch
   class Switch < ApplicationRecord
     include NotificationsConcern
 
-    enum state: {on: "on", off: "off"}
+    if Gem::Version.new(Rails.version) >= Gem::Version.new("7.2")
+      enum :state, {on: "on", off: "off"}
+    else
+      enum state: {on: "on", off: "off"}
+    end
 
     scope :ordered, -> { order(:name) }
 
