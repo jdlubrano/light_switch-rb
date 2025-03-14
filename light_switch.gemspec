@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 7.0.2.2", "< 7.2"
   spec.add_dependency "turbo-rails", "~> 1.5"
 
+  spec.add_development_dependency "appraisal"
   spec.add_development_dependency "capybara"
   spec.add_development_dependency "standard"
 end
