@@ -26,6 +26,8 @@ puts <<~MSG
 
   Bumped to v#{LightSwitch::VERSION}
 
-  Run bundle exec rake release to push to RubyGems
+  Push to RubyGems with:
+
+  bundle exec rake release
 
 MSG
