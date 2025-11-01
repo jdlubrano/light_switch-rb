@@ -11,6 +11,7 @@ it.
 [Stoplight](https://github.com/bolshakov/stoplight) and
 [Circuitbox](https://github.com/yammer/circuitbox) are excellent, full-featured
 [circuit breaker](https://martinfowler.com/bliki/CircuitBreaker.html) libraries.
+[Semian](https://github.com/Shopify/semian) is an even more sophisticated beast.
 `LightSwitch` is much more basic. In particular, `LightSwitch` does not
 dynamically respond and adjust to errors. As the operator of your application,
 you are expected to manually turn switches off and on when you need to.
