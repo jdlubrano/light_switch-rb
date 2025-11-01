@@ -9,6 +9,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    abbrev (0.1.2)
     action_text-trix (2.1.15)
       railties
     actioncable (8.1.1)
@@ -219,6 +220,8 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.3.1)
+    rake-version (1.0.1)
+      rake (> 11.1)
     rdoc (6.15.1)
       erb
       psych (>= 4.0.0)
@@ -295,11 +298,13 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  abbrev
   appraisal
   capybara
   debug (>= 1.0.0)
   gems-cli
   light_switch!
+  rake-version
   sprockets-rails
   sqlite3
   standard

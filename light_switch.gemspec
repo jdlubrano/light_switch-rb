@@ -22,9 +22,11 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 7.0.2.2", "< 8.2"
   spec.add_dependency "turbo-rails", ">= 1.5", "< 2.1"
 
+  spec.add_development_dependency "abbrev"
   spec.add_development_dependency "appraisal"
   spec.add_development_dependency "capybara"
   spec.add_development_dependency "gems-cli"
+  spec.add_development_dependency "rake-version"
   spec.add_development_dependency "standard"
   spec.add_development_dependency "webrick"
 end
