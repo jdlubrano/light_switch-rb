@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    light_switch (0.0.5)
+    light_switch (0.0.6)
       inline_svg (~> 1.8)
       rails (>= 7.0.2.2, < 8.2)
       turbo-rails (>= 1.5, < 2.1)
