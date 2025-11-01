@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "appraisal"
   spec.add_development_dependency "capybara"
+  spec.add_development_dependency "gems-cli"
   spec.add_development_dependency "standard"
   spec.add_development_dependency "webrick"
 end
