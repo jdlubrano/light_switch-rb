@@ -20,7 +20,7 @@ end
 `bundle exec standardrb --fix`
 `git commit -a --amend --no-edit`
 
-require "light_switch/version"
+require "light_switch"
 
 puts <<~MSG
 
