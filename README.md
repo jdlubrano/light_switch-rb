@@ -189,6 +189,17 @@ Or install it yourself as:
 $ gem install light_switch
 ```
 
+## Tests
+You can run the tests across all supported Rails versions:
+```
+./bin/appraisal rails test
+```
+
+## Release process
+```
+./bin/release [major|minor|patch]
+```
+
 ## Contributing
 Fork this repo and submit a pull request.
 

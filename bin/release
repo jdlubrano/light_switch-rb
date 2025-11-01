@@ -1,0 +1,24 @@
+#!/usr/bin/ruby
+
+RELEASE_TYPES = %w[major minor patch].freeze
+
+release_type = ARGV[0].to_s
+
+if !RELEASE_TYPES.include?(release_type)
+  puts <<~ERR
+
+    Invalid release type specified
+
+    Example usage: ./bin/release [major|minor|patch]
+
+  ERR
+
+  exit(1)
+end
+
+`git checkout main`
+`git pull --prune`
+`bundle exec rake version:bump:#{release_type}`
+`bundle exec standardrb --fix`
+`git commit -a --amend`
+`bundle exec rake release`
