@@ -87,7 +87,7 @@ GEM
       rake
       thor (>= 0.14.0)
     ast (2.4.2)
-    base64 (0.2.0)
+    base64 (0.3.0)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
     builder (3.3.0)
@@ -161,8 +161,8 @@ GEM
       stringio
     public_suffix (6.0.1)
     racc (1.8.1)
-    rack (3.1.12)
-    rack-session (2.1.0)
+    rack (3.2.3)
+    rack-session (2.1.1)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
     rack-test (2.2.0)
