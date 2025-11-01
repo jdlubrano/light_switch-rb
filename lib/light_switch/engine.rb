@@ -18,7 +18,7 @@ module LightSwitch
     initializer "light_switch.create_switches", after: :load_config_initializers do
       ActiveSupport.on_load(:active_record) do
         LightSwitch.config.switches.each do |name|
-          Switch.find_or_create_by!(name: name) if Switch.table_exists?
+          Switch.find_or_create_by!(name: name.to_s) if Switch.table_exists?
         rescue ActiveRecord::RecordNotUnique
         end
       end

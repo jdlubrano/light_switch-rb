@@ -47,7 +47,7 @@ module LightSwitch
     end
 
     test "after_save :delete_from_cache (on create)" do
-      switch = LightSwitch::Switch.new(name: :test)
+      switch = LightSwitch::Switch.new(name: "test")
 
       mock_cache = Minitest::Mock.new
       mock_cache.expect :delete, true, ["light_switch/switch/test"]
@@ -60,7 +60,7 @@ module LightSwitch
     end
 
     test "after_save :delete_from_cache (on update)" do
-      switch = LightSwitch::Switch.create!(name: :test)
+      switch = LightSwitch::Switch.create!(name: "test")
 
       mock_cache = Minitest::Mock.new
       mock_cache.expect :delete, true, ["light_switch/switch/test"]
@@ -73,7 +73,7 @@ module LightSwitch
     end
 
     test "after_save :delete_from_cache (on destroy)" do
-      switch = LightSwitch::Switch.create!(name: :test)
+      switch = LightSwitch::Switch.create!(name: "test")
 
       mock_cache = Minitest::Mock.new
       mock_cache.expect :delete, true, ["light_switch/switch/test"]

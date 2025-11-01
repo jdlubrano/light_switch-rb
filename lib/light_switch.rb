@@ -1,13 +1,18 @@
-require "active_support/configurable"
-
 require "light_switch/version"
+require "light_switch/configuration"
 require "light_switch/engine"
 require "light_switch/null_cache"
 
 module LightSwitch
-  include ActiveSupport::Configurable
-
   module_function
+
+  def config
+    @config ||= Configuration.new
+  end
+
+  def configure
+    yield config
+  end
 
   def configure_defaults
     config.cache = NullCache.new
@@ -22,7 +27,7 @@ module LightSwitch
 
   def [](switch_name)
     config.cache.fetch("#{LightSwitch::Switch.name.underscore}/#{switch_name}", **config.cache_fetch_options) do
-      LightSwitch::Switch.find_or_initialize_by(name: switch_name)
+      LightSwitch::Switch.find_or_initialize_by(name: switch_name.to_s)
     end
   end
 
