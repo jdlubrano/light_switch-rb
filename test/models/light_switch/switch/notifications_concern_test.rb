@@ -14,7 +14,7 @@ module LightSwitch
       callback = NotificationCallback.new
 
       ActiveSupport::Notifications.subscribed(callback, "create_committed.switch.light_switch") do
-        LightSwitch::Switch.create!(name: :test)
+        LightSwitch::Switch.create!(name: "test")
       end
 
       assert_equal 1, callback.call_count
@@ -23,7 +23,7 @@ module LightSwitch
 
     test "destroy_committed notification" do
       callback = NotificationCallback.new
-      switch = LightSwitch::Switch.create!(name: :test)
+      switch = LightSwitch::Switch.create!(name: "test")
 
       ActiveSupport::Notifications.subscribed(callback, "destroy_committed.switch.light_switch") do
         switch.destroy
@@ -35,7 +35,7 @@ module LightSwitch
 
     test "update_committed notification" do
       callback = NotificationCallback.new
-      switch = LightSwitch::Switch.create!(name: :test)
+      switch = LightSwitch::Switch.create!(name: "test")
 
       ActiveSupport::Notifications.subscribed(callback, "update_committed.switch.light_switch") do
         switch.off!
