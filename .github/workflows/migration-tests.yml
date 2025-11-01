@@ -14,7 +14,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
       - name: Install dependencies
-        run: bundle && ./bin/appraisal install
+        run: ./bin/appraisal install
       - name: Set up DB
         run: ./bin/appraisal rails db:create db:migrate:reset

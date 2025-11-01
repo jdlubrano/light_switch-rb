@@ -22,8 +22,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
       - name: Install dependencies
-        run: bundle && ./bin/appraisal install
+        run: ./bin/appraisal install
       - name: Set up DB
         run: ./bin/rails db:setup
       - name: Test Engine initializers
