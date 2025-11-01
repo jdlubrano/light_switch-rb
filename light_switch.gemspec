@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "abbrev"
   spec.add_development_dependency "appraisal"
-  spec.add_development_dependency 'bundler-gem_version_tasks'
+  spec.add_development_dependency "bundler-gem_version_tasks"
   spec.add_development_dependency "capybara"
   spec.add_development_dependency "gems-cli"
   spec.add_development_dependency "standard"
