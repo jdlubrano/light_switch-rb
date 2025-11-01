@@ -19,4 +19,13 @@ end
 `bundle exec rake version:bump:#{release_type}`
 `bundle exec standardrb --fix`
 `git commit -a --amend --no-edit`
-# `bundle exec rake release`
+
+require "light_switch/version"
+
+puts <<~MSG
+
+  Bumped to v#{LightSwitch::VERSION}
+
+  Run bundle exec rake release to push to RubyGems
+
+MSG
