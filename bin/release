@@ -16,9 +16,18 @@ if !RELEASE_TYPES.include?(release_type)
   exit(1)
 end
 
-`git checkout main`
-`git pull --prune`
 `bundle exec rake version:bump:#{release_type}`
 `bundle exec standardrb --fix`
-`git commit -a --amend`
-`bundle exec rake release`
+`git commit -a --amend --no-edit`
+
+require_relative "../lib/light_switch/version"
+
+puts <<~MSG
+
+  Bumped to v#{LightSwitch::VERSION}
+
+  Push to RubyGems with:
+
+  bundle exec rake release
+
+MSG
