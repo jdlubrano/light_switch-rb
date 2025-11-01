@@ -4,7 +4,6 @@ require "light_switch/engine"
 require "light_switch/null_cache"
 
 module LightSwitch
-
   module_function
 
   def config
