@@ -21,4 +21,4 @@ end
 `bundle exec rake version:bump:#{release_type}`
 `bundle exec standardrb --fix`
 `git commit -a --amend`
-`bundle exec rake release`
+# `bundle exec rake release`

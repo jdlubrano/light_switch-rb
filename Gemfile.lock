@@ -94,6 +94,7 @@ GEM
     base64 (0.3.0)
     bigdecimal (3.3.1)
     builder (3.3.0)
+    bundler-gem_version_tasks (0.2.1)
     capybara (3.40.0)
       addressable
       matrix
@@ -220,8 +221,6 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.3.1)
-    rake-version (1.0.1)
-      rake (> 11.1)
     rdoc (6.15.1)
       erb
       psych (>= 4.0.0)
@@ -300,11 +299,11 @@ PLATFORMS
 DEPENDENCIES
   abbrev
   appraisal
+  bundler-gem_version_tasks
   capybara
   debug (>= 1.0.0)
   gems-cli
   light_switch!
-  rake-version
   sprockets-rails
   sqlite3
   standard
