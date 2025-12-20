@@ -1,20 +1,14 @@
-appraise "rails-7" do
-  gem "rails", "~> 7.0"
-  gem "turbo-rails", "~> 1.5"
-end
-
-appraise "rails-7.1" do
-  gem "rails", "~> 7.1"
-end
-
 appraise "rails-7.2" do
-  gem "rails", "~> 7.2"
+  gem "rails", "~> 7.2.0"
+  gem "minitest-rails", "~> 7.2.0"
 end
 
 appraise "rails-8" do
-  gem "rails", "~> 8.0"
+  gem "rails", "~> 8.0.0"
+  gem "minitest-rails", "~> 8.0.0"
 end
 
 appraise "rails-8.1" do
-  gem "rails", "~> 8.1"
+  gem "rails", "~> 8.1.0"
+  gem "minitest-rails", "~> 8.1.0"
 end
