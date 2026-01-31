@@ -5,14 +5,14 @@ Gem::Specification.new do |spec|
   spec.version = LightSwitch::VERSION
   spec.authors = ["Joel Lubrano"]
   spec.email = ["joel.lubrano@gmail.com"]
-  spec.homepage = "https://github.com/jdlubrano/light_switch_rb"
+  spec.homepage = "https://github.com/jdlubrano/light_switch-rb"
   spec.summary = "Circuit breakers on Rails"
   spec.description = "An implementation of the circuit breaker pattern using ActiveRecord"
   spec.license = "MIT"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/jdlubrano/light_switch_rb"
-  spec.metadata["changelog_uri"] = "https://github.com/jdlubrano/light_switch_rb/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/jdlubrano/light_switch-rb"
+  spec.metadata["changelog_uri"] = "https://github.com/jdlubrano/light_switch-rb/CHANGELOG.md"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     Dir["{app,config,db,lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
