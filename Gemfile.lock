@@ -9,7 +9,6 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    abbrev (0.1.2)
     action_text-trix (2.1.16)
       railties
     actioncable (8.1.2)
@@ -179,11 +178,11 @@ GEM
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
-    prism (1.8.0)
+    prism (1.9.0)
     psych (5.3.1)
       date
       stringio
-    public_suffix (7.0.0)
+    public_suffix (7.0.2)
     racc (1.8.1)
     rack (3.2.4)
     rack-session (2.1.1)
@@ -284,7 +283,7 @@ GEM
     thor (1.5.0)
     timeout (0.6.0)
     tsort (0.2.0)
-    turbo-rails (2.0.21)
+    turbo-rails (2.0.23)
       actionpack (>= 7.1.0)
       railties (>= 7.1.0)
     tzinfo (2.0.6)
@@ -314,7 +313,6 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  abbrev
   appraisal
   bundler-gem_version_tasks
   capybara
