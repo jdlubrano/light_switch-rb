@@ -2,6 +2,7 @@
 /.bundle/
 /doc/
 /gemfiles/*.lock
+/gemfiles/vendor
 /log/*.log
 /pkg/
 /tmp/
